@@ -17,8 +17,6 @@
         }
     }
 
-    // testaaa
-
     function onOpen(event) {
       //console.log("onOpen");
         mcSocket.IsConnect = true;
@@ -96,13 +94,13 @@
         mcSendWCB(msg, getb_cb);
     }
 
-    function setBlock(x,y,z,block) {
-        var opt = [x,y,z,block].join();
+    function setBlock(block,x,y,z) {
+        var opt = [x,y,z,block[0],block[1]].join();
         mcSend("world.setBlock(" + opt + ")");
     }
 
-    function setBlocks(x1,y1,z1,x2,y2,z2,block){
-        var opt = [ x1, y1, z1, x2, y2, z2, block ].join();
+    function setBlocks(block,x1,y1,z1,x2,y2,z2){
+        var opt = [ x1, y1, z1, x2, y2, z2, block[0], block[1] ].join();
         mcSend( "world.setBlocks(" + opt + ")" );
     }
 
@@ -157,37 +155,49 @@
     }
 
     function worldReset() {
-        postToChat('まわりをもとにもどします')
-        setBlocks(-100,  0, -100, 100, 63, 100, 0);
-        setBlocks(-100, -4, -100, 100, -1, 100, 2);
-        setBlocks(-100, -5, -100, 100, -5, 100, 7);
+        postToChat('周りを元に戻します。')
+        setBlocks(0, -100,  0, -100, 100, 63, 100);
+        setBlocks(2, -100, -3, -100, 100, -1, 100);
+        setBlocks(7, -100, -4, -100, 100, -4, 100);
         setPlayer(0, 0, 0);
     }
 
+    var blockList = [
+        [0,   0,  '空気'],
+        [1,   0,  '石'],
+        [2,   0,  '草'],
+        [3,   0,  '土'],
+        [4,   0,  '丸石'],
+        [5,   0,  'オークの木材'],
+        [5,   1,  'マツの木材'],
+        [5,   2,  'シラカバの木材'],
+        [10,  0,  '溶岩'],
+        [41,  0,  '金ブロック'],
+        [42,  0,  '鉄ブロック'],
+        [46,  0,  'TNT'],
+        [57,  0,  'ダイヤブロック'],
+        [64,  0,  'オークのドア'],
+        [72,  0,  '木の感圧版'],
+        [88,  0,  'ソウルサンド'],
+        [91,  0,  'ジャック・オ・ランタン'],
+        [133, 0,  'エメラルドブロック'],
+        [138, 0,  'ビーコン'],
+        [152, 0,  'レッドストーンブロック'],
+        [165, 0,  'スライムブロック'],
+    ];
+
     function block_name(block) {
-        var blockList = [
-            [0, '空気'],
-            [1, '石'],
-            [2, '草'],
-            [3, '土'],
-            [4, '丸石'],
-            [5, '木材'],
-            [10, '溶岩'],
-            [46, 'TNT'],
-            [57, 'ダイヤブロック'],
-            [91, 'ジャック・オ・ランタン'],
-            [152, 'レッドストーンブロック'],
-        ]
         for(var i=0; i<blockList.length; i++){
-            if(block == blockList[i][1]){
-                console.log("BlockIDのつもり" + (blockList[i][0]));
-                return parseInt(blockList[i][0]);
+            if(block == blockList[i][2]){
+                console.log("BlockID:" + (blockList[i][0]));
+                id = [parseInt(blockList[i][0]), parseInt(blockList[i][1])];
+                return id;
             }
         }
-        mcSend("chat.post(" + block + "はみつかりませんでした)");
-        return 1;
+        mcSend("chat.post(" + block + "が見つかりません)");
+        return [1, 0];
     }
-  
+
     ext.connect      = connect;
     ext.connect_url  = connect_url;
     ext.postToChat   = postToChat;
@@ -200,19 +210,19 @@
     ext.sendRawMsg   = sendRawMsg;
     ext.worldReset   = worldReset;
     ext.block_name   = block_name;
-  
+
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
           [' ', '%s にせつぞく', 'connect', 'localhost' ],
-          [' ', '%s とチャットする', 'postToChat', 'ハロー、ワールド！' ],
+          [' ', 'チャットする %s ', 'postToChat', 'ハロー、ワールド！' ],
           ['r', '%m.blockName', 'block_name', 'ダイヤブロック'],
-          ['R', 'X:%n Y:%n Z:%n のブロックをゲット', 'getBlock', 0,0,0 ],
-          [' ', 'X:%n Y:%n Z:%n に %s をおく', 'setBlock', 0,0,0,' ' ],
-          [' ', 'X1:%n Y1:%n Z1:%n から X2:%n Y2:%n Z2:%n まで %s をおく', 'setBlocks', 0,0,0,0,0,0," " ],
-          [' ', 'ワールドをリセット', 'worldReset'],
-          [' ', 'X=%n Y=%n Z=%n にプレイヤーをいどう', 'setPlayer', 0,0,0 ],
-          ['w', 'プレイヤーのざひょうをゲット', 'getPlayerPos'],
+          ['R', 'ブロック名 X:%n Y:%n Z:%n ', 'getBlock', 0,0,0 ],
+          [' ', '%s を置く X:%n Y:%n Z:%n ', 'setBlock', ' ',0,0,0 ],
+          // [' ', '%s をしきつめる X1:%n Y1:%n Z1:%n から X2:%n Y2:%n Z2:%n まで', 'setBlocks', ' ',0,0,0,0,0,0 ],
+          [' ', '周囲をリセット', 'worldReset'],
+          [' ', 'テレポート X:%n Y:%n Z:%n ', 'setPlayer', 0,0,0 ],
+          ['w', 'プレイヤーの座標をゲット', 'getPlayerPos'],
           ['r', 'プレイヤーの %m.pos ざひょう', 'playerXYZ', 'x'],
           // [' ', 'プレイヤーに %n ダメージをあたえる', 'giveDamage', 1],
           // [' ', '%m.mobName をしょうかんする', 'summonMob', '羊'],
@@ -221,7 +231,7 @@
         menus: {
             pos: ['x', 'y', 'z'],
             blockPos: ['abs', 'rel'],
-            blockName: ['空気', '石', '草', '土', '丸石', '木材', '溶岩', 'TNT', 'ダイヤブロック', 'ジャック・オ・ランタン', 'レッドストーンブロック'],
+            blockName: ['空気','石','草','土','丸石','オークの木材','マツの木材','シラカバの木材','溶岩','金ブロック','鉄ブロック','TNT','ダイヤブロック','オークのドア','木の感圧版','ソウルサンド','ジャック・オ・ランタン','エメラルドブロック','ビーコン','レッドストーンブロック','スライムブロック'],
             // mobName: ['羊', '馬', ],
         }
     };
