@@ -63,7 +63,8 @@
     //
     // Minecraft Control function
     //
-    function connect(target) {
+    function connect() {
+        target = "localhost";
         if(mcSocket!=null) {
             mcSocket.close();
             mcSocket = null;
@@ -155,11 +156,15 @@
     }
 
     function worldReset() {
-        postToChat('周りを元に戻します。')
-        setBlocks([0, 0], -100,  0, -100, 100, 63, 100);
-        setBlocks([2, 0], -100, -3, -100, 100, -1, 100);
-        setBlocks([7, 0], -100, -4, -100, 100, -4, 100);
-        setPlayer(0, 0, 0);
+        getPlayerPos();
+        var x = getPlayerYXZ("x");
+        var z = getPlayerYXZ("z");
+
+        postToChat('周りを元に戻します。');
+        setBlocks([0, 0], x-100,  0, z-100, x+100, 63, z+100);
+        setBlocks([2, 0], x-100, -3, z-100, x+100, -1, z+100);
+        setBlocks([7, 0], x-100, -4, z-100, x*100, -4, z+100);
+        setPlayer(x, 0, z);
     }
 
     var blockList = [
@@ -214,7 +219,7 @@
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-          [' ', '%s にせつぞく', 'connect', 'localhost' ],
+          [' ', 'マインクラフトに接続', 'connect'],
           [' ', 'チャットする %s ', 'postToChat', 'ハロー、ワールド！' ],
           ['r', '%m.blockName', 'block_name', 'ダイヤブロック'],
           ['R', 'ブロック名 X:%n Y:%n Z:%n ', 'getBlock', 0,0,0 ],
@@ -223,10 +228,10 @@
           [' ', '周囲をリセット', 'worldReset'],
           [' ', 'テレポート X:%n Y:%n Z:%n ', 'setPlayer', 0,0,0 ],
           ['w', 'プレイヤーの座標をゲット', 'getPlayerPos'],
-          ['r', 'プレイヤーの %m.pos ざひょう', 'playerXYZ', 'x'],
+          ['r', 'プレイヤーの %m.pos 座標', 'playerXYZ', 'x'],
           // [' ', 'プレイヤーに %n ダメージをあたえる', 'giveDamage', 1],
           // [' ', '%m.mobName をしょうかんする', 'summonMob', '羊'],
-          [' ', '直接入力 %s', 'sendRawMsg', '' ], // for Extension Developper
+          // [' ', '直接入力 %s', 'sendRawMsg', '' ], // for Extension Developper
         ],
         menus: {
             pos: ['x', 'y', 'z'],
