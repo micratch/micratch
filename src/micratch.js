@@ -164,7 +164,6 @@
         setBlocks([0, 0], x-30,  0, z-30, x+30, 30, z+30);
         setBlocks([2, 0], x-30, -3, z-30, x+30, -1, z+30);
         setBlocks([7, 0], x-30, -4, z-30, x+30, -4, z+30);
-        setPlayer(x, 0, z);
     }
 
     var blockList = [
