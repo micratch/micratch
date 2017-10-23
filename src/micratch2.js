@@ -251,9 +251,9 @@
         blocks: [
           [' ', 'マインクラフトに接続', 'connect'],
           [' ', 'チャットする %s ', 'postToChat', 'ハロー、ワールド！' ],
-          ['r', '%m.buildingBlock', 'block_name', '建築ブロック'],
-          ['r', '%m.plantBlock', 'block_name', '植物'],
-          ['r', '%m.specialBlock', 'block_name', '特殊ブロック'],
+          ['r', '%m.buildingBlock', 'block_name', 'ダイヤブロック'],
+          ['r', '%m.plantBlock', 'block_name', 'ポピー'],
+          ['r', '%m.specialBlock', 'block_name', '空気'],
           ['R', 'ブロック名 X:%n Y:%n Z:%n ', 'getBlock', 0,0,0 ],
           [' ', '%s を置く X:%n Y:%n Z:%n ', 'setBlock', ' ',0,0,0 ],
           // [' ', '%s をしきつめる X1:%n Y1:%n Z1:%n から X2:%n Y2:%n Z2:%n まで', 'setBlocks', ' ',0,0,0,0,0,0 ],
@@ -263,7 +263,7 @@
           ['r', 'プレイヤーの %m.pos 座標', 'playerXYZ', 'x'],
           // [' ', 'プレイヤーに %n ダメージをあたえる', 'giveDamage', 1],
           // [' ', '%m.mobName をしょうかんする', 'summonMob', '羊'],
-          // [' ', '直接入力 %s', 'sendRawMsg', '' ], // for Extension Developper
+          //[' ', '直接入力 %s', 'sendRawMsg', '' ], // for Extension Developper
         ],
         menus: {
             pos: ['x', 'y', 'z'],
