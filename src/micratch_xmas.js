@@ -258,10 +258,6 @@
         return [1, 0];
     }
 
-    function block_name2(block) {
-        return block;
-    }
-
     ext.connect      = connect;
     ext.connect_url  = connect_url;
     ext.postToChat   = postToChat;
@@ -281,9 +277,10 @@
           [' ', 'マインクラフトに接続', 'connect'],
           [' ', 'チャットする %s ', 'postToChat', 'ハロー、ワールド！' ],
           ['r', '%m.buildingBlock', 'block_name', 'ダイヤブロック'],
-          ['r', '%m.plantBlock', 'block_name2', 'ポピー'],
-          ['r', '%m.specialBlock', 'block_name2', '空気'],
-          ['r', '%m.colorfulBlock', 'block_name2', '白色の羊毛'],
+          ['r', '%m.plantBlock', 'block_name', 'ポピー'],
+          ['r', '%m.specialBlock', 'block_name', '空気'],
+          ['r', '%m.colorfulBlock', 'block_name', '白色の羊毛'],
+          ['r', '%m.bingoBlock', 'block_name', 'ビンゴブロック']
           ['R', 'ブロック名 X:%n Y:%n Z:%n ', 'getBlock', 0,0,0 ],
           [' ', '%s を置く X:%n Y:%n Z:%n ', 'setBlock', ' ',0,0,0 ],
           [' ', '周囲をリセット', 'worldReset'],
@@ -299,6 +296,7 @@
             plantBlock: ['タンポポ','ポピー','ヒスイラン','アリウム','ヒナソウ','赤色のチューリップ','橙色のチューリップ','白色のチューリップ','桃色のチューリップ','フランスギク','茶色のキノコ','赤色のキノコ',],
             specialBlock: ['空気','溶岩','TNT','オークのドア','木の感圧版','ビーコン','レッドストーンブロック','スライムブロック',],
             colorfulBlock: ['白色の羊毛','橙色の羊毛','赤紫色の羊毛','空色の羊毛','黄色の羊毛','黄緑色の羊毛','桃色の羊毛','灰色の羊毛','薄灰色の羊毛','青緑色の羊毛','紫色の羊毛','青色の羊毛','茶色の羊毛','緑色の羊毛','赤色の羊毛','黒色の羊毛',],
+            bingoBlock: ['石','草','土','丸石','オークの木材','岩盤','砂','砂利','オークの原木','白色の羊毛', '空色の羊毛', '黄色の羊毛', '桃色の羊毛', '青色の羊毛', '緑色の羊毛', '赤色の羊毛', '黒色の羊毛', '金ブロック','鉄ブロック','ダイヤブロック',],
         }
     };
 
