@@ -280,7 +280,7 @@
           ['r', '%m.plantBlock', 'block_name', 'ポピー'],
           ['r', '%m.specialBlock', 'block_name', '空気'],
           ['r', '%m.colorfulBlock', 'block_name', '白色の羊毛'],
-          ['r', '%m.bingoBlock', 'block_name', 'ビンゴブロック']
+          ['r', '%m.bingoBlock', 'block_name', 'ビンゴブロック'],
           ['R', 'ブロック名 X:%n Y:%n Z:%n ', 'getBlock', 0,0,0 ],
           [' ', '%s を置く X:%n Y:%n Z:%n ', 'setBlock', ' ',0,0,0 ],
           [' ', '周囲をリセット', 'worldReset'],
