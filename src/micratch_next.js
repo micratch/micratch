@@ -310,6 +310,25 @@
         return "マイクラッチIDを入力してください";
     }
 
+    /*
+    TEST AREA
+    */
+
+    function testFunction(){
+    //    mcSend("events.setting(restrict_to_sword)");
+//        mcSend("events.block.hits()");
+        mcSend("events.chat.posts(time,set,0)");
+        mcSend("world.setBlock(0,1,0,57,0)");
+        mcSend("world.spawnEntity(enderdragon,5,50,5)");
+        mcSend("events.chat.posts()");
+    }
+
+    function spawnEntity(entityName, x, y, z){
+        opt = [entityName,x,y,z].join();
+        mcSend("world.spawnEntity(" + opt + ")");
+    }
+
+
     function getCommonBlockID(blockName){ }
     function getRareBlockID(blockName){ }
     function getColorfulWoolID(blockName){ }
@@ -336,7 +355,10 @@
     ext.getPlantBlockID = getMicratchID;
     ext.getMiscBlockID = getMicratchID;
     ext.getBlockName = getBlockName;
+    ext.getPlayerId = getPlayerId;
+    ext.spawnEntity = spawnEntity;
 
+    ext.testFunction = testFunction;
 
     // Block and block menu descriptions
     var descriptor = {
@@ -355,8 +377,12 @@
           [' ', 'テレポート X:%n Y:%n Z:%n ', 'setPlayer', 0,0,0 ],
           ['w', 'プレイヤーの座標をゲット', 'getPlayerPos'],
           ['r', 'プレイヤーの %m.pos 座標', 'playerXYZ', 'x'],
+          [' ', '%s を召喚する X:%n Y:%n Z:%n', 'spawnEntity', 'Zombie', 0,0,0 ],
           // ['R', 'X:%n Y:%n Z:%n のID', 'getBlock', 0,0,0 ],
           [' ', '直接入力 %s', 'sendRawMsg', '' ],
+
+          [' ', 'getPlayerId', 'getPlayerId'],
+          [' ', 'testFunction', 'testFunction', ''],
         ],
         menus: {
             pos: ['x', 'y', 'z'],
