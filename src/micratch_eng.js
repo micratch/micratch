@@ -226,8 +226,8 @@
           [' ', 'place %s X:%n Y:%n Z:%n ', 'setBlock', ' ',0,0,0 ],
           [' ', 'reset world', 'worldReset'],
           [' ', 'teleport X:%n Y:%n Z:%n ', 'setPlayer', 0,0,0 ],
-          ['w', 'get player position', 'getPlayerPos'],
-          ['r', 'player %m.pos pos', 'playerXYZ', 'x'],
+          ['w', "get player's position", 'getPlayerPos'],
+          ['r', "player's %m.pos pos", 'playerXYZ', 'x'],
         ],
         menus: {
             pos: ['x', 'y', 'z'],
