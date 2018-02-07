@@ -310,17 +310,24 @@
         return "マイクラッチIDを入力してください";
     }
 
-    /*
-    TEST AREA
-    */
+    function getBlockWithData(x,y,z,callback){
+        var opt = [x,y,z].join();
+        var msg = "world.getBlockWithData(" + opt + ")";
+        function getbwd_cb(txt) {
+            //console.log("getBlock : " + txt);
 
-    function testFunction(){
-    //    mcSend("events.setting(restrict_to_sword)");
-//        mcSend("events.block.hits()");
-        mcSend("events.chat.posts(time,set,0)");
-        mcSend("world.setBlock(0,1,0,57,0)");
-        mcSend("world.spawnEntity(enderdragon,5,50,5)");
-        mcSend("events.chat.posts()");
+            if( typeof callback != "undefined" && callback!=null) {
+                id = event.data.split(",");
+                result = "マイクラッチにないブロックです。";
+                for(var i=0; i<blockList.length; i++){
+                    if(id[0] == blockList[i][1] && id[1] == blockList[i][2]){
+                        result = blockList[i][0];
+                    }
+                }
+            }
+            callback(result);
+        }
+        mcSendWCB(msg, getbwd_cb);
     }
 
     function spawnEntity(entityName, x, y, z){
@@ -355,10 +362,9 @@
     ext.getPlantBlockID = getMicratchID;
     ext.getMiscBlockID = getMicratchID;
     ext.getBlockName = getBlockName;
-    ext.getPlayerId = getPlayerId;
+    ext.getBlockWithData = getBlockWithData;
     ext.spawnEntity = spawnEntity;
 
-    ext.testFunction = testFunction;
 
     // Block and block menu descriptions
     var descriptor = {
@@ -377,12 +383,8 @@
           [' ', 'テレポート X:%n Y:%n Z:%n ', 'setPlayer', 0,0,0 ],
           ['w', 'プレイヤーの座標をゲット', 'getPlayerPos'],
           ['r', 'プレイヤーの %m.pos 座標', 'playerXYZ', 'x'],
+          ['R', 'X:%n Y:%n Z:%n にあるブロック', 'getBlockWithData', 0,0,0],
           [' ', '%s を召喚する X:%n Y:%n Z:%n', 'spawnEntity', 'Zombie', 0,0,0 ],
-          // ['R', 'X:%n Y:%n Z:%n のID', 'getBlock', 0,0,0 ],
-          [' ', '直接入力 %s', 'sendRawMsg', '' ],
-
-          [' ', 'getPlayerId', 'getPlayerId'],
-          [' ', 'testFunction', 'testFunction', ''],
         ],
         menus: {
             pos: ['x', 'y', 'z'],

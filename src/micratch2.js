@@ -310,6 +310,26 @@
         return "マイクラッチIDを入力してください";
     }
 
+    function getBlockWithData(x,y,z,callback){
+        var opt = [x,y,z].join();
+        var msg = "world.getBlockWithData(" + opt + ")";
+        function getbwd_cb(txt) {
+            //console.log("getBlock : " + txt);
+
+            if( typeof callback != "undefined" && callback!=null) {
+                id = event.data.split(",");
+                result = "マイクラッチにないブロックです。";
+                for(var i=0; i<blockList.length; i++){
+                    if(id[0] == blockList[i][1] && id[1] == blockList[i][2]){
+                        result = blockList[i][0];
+                    }
+                }
+            }
+            callback(result);
+        }
+        mcSendWCB(msg, getbwd_cb);
+    }
+
     function getCommonBlockID(blockName){ }
     function getRareBlockID(blockName){ }
     function getColorfulWoolID(blockName){ }
@@ -336,6 +356,7 @@
     ext.getPlantBlockID = getMicratchID;
     ext.getMiscBlockID = getMicratchID;
     ext.getBlockName = getBlockName;
+    ext.getBlockWithData = getBlockWithData;
 
 
     // Block and block menu descriptions
@@ -355,8 +376,7 @@
           [' ', 'テレポート X:%n Y:%n Z:%n ', 'setPlayer', 0,0,0 ],
           ['w', 'プレイヤーの座標をゲット', 'getPlayerPos'],
           ['r', 'プレイヤーの %m.pos 座標', 'playerXYZ', 'x'],
-          // ['R', 'X:%n Y:%n Z:%n のID', 'getBlock', 0,0,0 ],
-          [' ', '直接入力 %s', 'sendRawMsg', '' ],
+          ['R', 'X:%n Y:%n Z:%n にあるブロック', 'getBlockWithData', 0,0,0],
         ],
         menus: {
             pos: ['x', 'y', 'z'],
