@@ -258,7 +258,7 @@
         [84,101,0,'Iron Bars'],
         [85,47,0,'Bookshelf'],
         [86,80,0,'Snow Block'],
-        [87,64,0,'Oak door(downside)'],
+        [87,50,0,'Torch'],
         [88,61,0,'Furnace'],
         [89,72,0,'Wooden Pressure Plate'],
         [90,19,0,'Sponge'],
@@ -376,7 +376,7 @@
             rareBlock: ['Gold Ore','Gold Block','Iron Ore','Iron Block','Coal Ore','Block of Coal','Diamond Ore','Diamond Block','Emerald Ore','Emerald Block','Lapis Lazuli Ore','Lapis Lazuli Block','Netherrack','Soul Sand','Prismarine','Prismarine Bricks','End Stone','Purpur Block',],
             colorfulWool: ['White Wool','Orange Wool','Magenta Wool','Light Blue Wool','Yellow Wool','Lime Wool','Pink Wool','Gray Wool','Light Gray Wool','Cyan Wool','Purple Wool','Blue Wool','Brown Wool','Green Wool','Red Wool','Black Wool',],
             colorfulGlass: ['White Stained Glass','Orange Stained Glass','Magenta Stained Glass','Light Blue Stained Glass','Yellow Stained Glass','Lime Stained Glass','Pink Stained Glass','Gray Stained Glass','Light Gray Stained Glass','Cyan Stained Glass','Purple Stained Glass','Blue Stained Glass','Brown Stained Glass','Green Stained Glass','Red Stained Glass','Black Stained Glass',],
-            miscBlock: ['Flowing Lava','Flowing Water','Oak door(upside)','Oak door(downside)','Air','TNT','Bedrock','Redstone Block','Glowstone','Ice','Sea Lantern',"Jack o'Lantern",'Oak Fence','Iron Bars','Bookshelf','Snow Block','Oak door(downside)','Furnace','Wooden Pressure Plate','Sponge','Slime Block','Chest','Beacon','Redstone Lamp (inactive)','Redstone Lamp (active)','Lever',],
+            miscBlock: ['Flowing Lava','Flowing Water','Oak door(upside)','Oak door(downside)','Air','TNT','Bedrock','Redstone Block','Glowstone','Ice','Sea Lantern',"Jack o'Lantern",'Oak Fence','Iron Bars','Bookshelf','Snow Block','Torch','Furnace','Wooden Pressure Plate','Sponge','Slime Block','Chest','Beacon','Redstone Lamp (inactive)','Redstone Lamp (active)','Lever',],
             plantBlock: ['Pumpkin','Melon Block','Dandelion','Poppy','Blue Orchid','Allium','Azure Bluet','Red Tulip','Orange Tulip','White Tulip','Pink Tulip','Oxeye Daisy','Brown Mushroom','Red Mushroom',],
         }
     };
