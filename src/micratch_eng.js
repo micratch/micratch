@@ -167,28 +167,28 @@
     }
 
     var blockList = [
-        [0,   0,  'air'],
-        [1,   0,  'stone'],
-        [2,   0,  'grass'],
-        [3,   0,  'dirt'],
-        [4,   0,  'cobblestone'],
-        [5,   0,  'oak planks'],
-        [5,   1,  'spruce planks'],
-        [5,   2,  'birch planks'],
-        [10,  0,  'lava'],
-        [41,  0,  'gold block'],
-        [42,  0,  'iron block'],
+        [0,   0,  'Air'],
+        [1,   0,  'Stone'],
+        [2,   0,  'Grass'],
+        [3,   0,  'Dirt'],
+        [4,   0,  'Cobblestone'],
+        [5,   0,  'Oak Planks'],
+        [5,   1,  'Spruce Planks'],
+        [5,   2,  'Birch Planks'],
+        [10,  0,  'Lava'],
+        [41,  0,  'Gold Block'],
+        [42,  0,  'Iron Block'],
         [46,  0,  'TNT'],
-        [57,  0,  'diamond block'],
-        [72,  0,  'wooden pressure plate'],
-        [88,  0,  'soul sand'],
-        [89,  0,  'glowstone'],
-        [91,  0,  'jack-o-lantern'],
-        [113, 0,  'nether brick fence'],
-        [133, 0,  'emerald block'],
-        [138, 0,  'beacon'],
-        [152, 0,  'redstone block'],
-        [165, 0,  'slime block'],
+        [57,  0,  'Diamond Block'],
+        [72,  0,  'Wooden Pressure Plate'],
+        [88,  0,  'Soul Sand'],
+        [89,  0,  'Glowstone'],
+        [91,  0,  "Jack o'Lantern"],
+        [113, 0,  'Nether Brick Fence'],
+        [133, 0,  'Emerald Block'],
+        [138, 0,  'Beacon'],
+        [152, 0,  'Redstone Block'],
+        [165, 0,  'Slime Block'],
     ];
 
     function block_name(block) {
@@ -221,7 +221,7 @@
         blocks: [
           [' ', 'connect to Minecraft', 'connect'],
           [' ', 'chat %s ', 'postToChat', 'Hello,world!' ],
-          ['r', '%m.blockName', 'block_name', 'diamond block'],
+          ['r', '%m.blockName', 'block_name', 'Diamond Block'],
           ['R', 'block name X:%n Y:%n Z:%n ', 'getBlock', 0,0,0 ],
           [' ', 'place %s X:%n Y:%n Z:%n ', 'setBlock', ' ',0,0,0 ],
           [' ', 'reset world', 'worldReset'],
@@ -232,7 +232,7 @@
         menus: {
             pos: ['x', 'y', 'z'],
             blockPos: ['abs', 'rel'],
-            blockName: ['air','stone','grass','dirt','cobblestone','oak planks','spruce planks','birch planks','lava','gold block','iron block','TNT','diamond block','wooden pressure plate','soul sand','glowstone','jack-o-lantern','nether blick fence','emerald block','beacon','redstone block','slime block'],
+            blockName: ['Air','Stone','Grass','Dirt','Cobblestone','Oak Planks','Spruce Planks','Birch Planks','Lava','Gold Block','Iron Block','TNT','Diamond Block','Wooden Pressure Plate','Soul Sand','Glowstone',"Jack o'lantern",'Nether Brick Fence','Emerald Block','Beacon','Redstone Block','Slime Block'],
         }
     };
 
