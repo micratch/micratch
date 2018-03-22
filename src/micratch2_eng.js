@@ -281,7 +281,7 @@
         [107,40,0,'Red Mushroom'],
         [108,123,0,'Redstone Lamp (inactive)'],
         [109,124,0,'Redstone Lamp (active)'],
-        [110,69,0,'Lever'],
+        [110,69,5,'Lever'],
         [111,45,0,'Bricks'],
         [112,98,0,'Stone Bricks'],
         [113,113,0,'Nether Brick Fence'],
