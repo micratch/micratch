@@ -285,7 +285,14 @@
         [111,45,0,'Bricks'],
         [112,98,0,'Stone Bricks'],
         [113,113,0,'Nether Brick Fence'],
-
+        [114,51,0,'Fire'],
+        [115,3,0,'Dirt'],
+        [116,66,0,'Rail'],
+        [117,27,0,'Powered Rail'],
+        [118,28,0,'Detector Rail'],
+        [119,157,0,'Activator Rail'],
+        [120,55,0,'Redstone'],
+        [121,76,0,'Redstone Torch (on)'],
     ];
 
     function getMicratchID(blockName) {
@@ -331,6 +338,7 @@
     function getColorfulGlassID(blockName){ }
     function getMiscBlockID(blockName){ }
     function getPlantBlockID(blockName){ }
+    function getPowerBlockID(blockName){ }
 
     ext.connect      = connect;
     ext.connect_url  = connect_url;
@@ -349,6 +357,7 @@
     ext.getColorfulGlassID = getMicratchID;
     ext.getPlantBlockID = getMicratchID;
     ext.getMiscBlockID = getMicratchID;
+    ext.getPowerBlockID = getMicratchID;
     ext.getBlockName = getBlockName;
     ext.getBlockWithData = getBlockWithData;
 
@@ -366,6 +375,7 @@
           ['r', '%m.colorfulGlass', 'getColorfulGlassID', 'White Stained Glass'],
           ['r', '%m.miscBlock', 'getMiscBlockID', 'Air'],
           ['r', '%m.plantBlock', 'getPlantBlockID', 'Poppy'],
+          ['r', '%m.powerBlock', 'getPowerBlockID', 'Redstone Block'],
           [' ', 'reset world', 'worldReset'],
           [' ', 'teleport X:%n Y:%n Z:%n ', 'setPlayer', 0,0,0 ],
           ['w', "get player's pos", 'getPlayerPos'],
@@ -375,12 +385,13 @@
         menus: {
             pos: ['x', 'y', 'z'],
             blockPos: ['abs', 'rel'],
-            commonBlock: ['Stone','Cobblestone','Granite','Diorite','Andesite','Grass','Sand','Gravel','Bricks','Stone Bricks','Oak Wood','Oak Wood Plank','Spruce Wood','Spruce Wood Plank','Birch Wood','Birch Wood Plank','Jungle Wood','Jungle Wood Plank','Acacia Wood','Acacia Wood Plank','Dark Oak Wood','Dark Oak Wood Plank',],
+            commonBlock: ['Stone','Granite','Diorite','Andesite','Grass','Dirt','Cobblestone','Oak Wood Plank','Spruce Wood Plank','Birch Wood Plank','Jungle Wood Plank','Acacia Wood Plank','Dark Oak Wood Plank','Sand','Gravel','Oak Wood','Spruce Wood','Birch Wood','Jungle Wood','Bricks','Stone Bricks','Acacia Wood','Dark Oak Wood',],
             rareBlock: ['Gold Ore','Gold Block','Iron Ore','Iron Block','Coal Ore','Block of Coal','Diamond Ore','Diamond Block','Emerald Ore','Emerald Block','Lapis Lazuli Ore','Lapis Lazuli Block','Netherrack','Soul Sand','Prismarine','Prismarine Bricks','End Stone','Purpur Block',],
             colorfulWool: ['White Wool','Orange Wool','Magenta Wool','Light Blue Wool','Yellow Wool','Lime Wool','Pink Wool','Gray Wool','Light Gray Wool','Cyan Wool','Purple Wool','Blue Wool','Brown Wool','Green Wool','Red Wool','Black Wool',],
             colorfulGlass: ['White Stained Glass','Orange Stained Glass','Magenta Stained Glass','Light Blue Stained Glass','Yellow Stained Glass','Lime Stained Glass','Pink Stained Glass','Gray Stained Glass','Light Gray Stained Glass','Cyan Stained Glass','Purple Stained Glass','Blue Stained Glass','Brown Stained Glass','Green Stained Glass','Red Stained Glass','Black Stained Glass',],
-            miscBlock: ['Flowing Lava','Flowing Water','Oak door(upside)','Oak door(downside)','Air','TNT','Bedrock','Redstone Block','Glowstone','Ice','Sea Lantern',"Jack o'Lantern",'Oak Fence','Nether Brick Fence','Iron Bars','Bookshelf','Snow Block','Torch','Furnace','Wooden Pressure Plate','Sponge','Slime Block','Chest','Beacon','Redstone Lamp (inactive)','Redstone Lamp (active)','Lever',],
+            miscBlock: ['Air','Bedrock','Flowing Water','Flowing Lava','Sponge','TNT','Bookshelf','Torch','Fire','Chest','Furnace','Oak door(upside)','Oak door(downside)','Ice','Snow Block','Oak Fence','Glowstone',"Jack o'Lantern",'Iron Bars','Nether Brick Fence','Beacon','Slime Block','Sea Lantern',],
             plantBlock: ['Pumpkin','Melon Block','Dandelion','Poppy','Blue Orchid','Allium','Azure Bluet','Red Tulip','Orange Tulip','White Tulip','Pink Tulip','Oxeye Daisy','Brown Mushroom','Red Mushroom',],
+            powerBlock: ['Powered Rail','Detector Rail','Redstone','Rail','Lever','Wooden Pressure Plate','Redstone Torch (on)','Redstone Lamp (inactive)','Redstone Lamp (active)','Redstone Block','Activator Rail',],
         }
     };
 
