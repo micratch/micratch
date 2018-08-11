@@ -95,7 +95,8 @@
         mcSendWCB(msg, getb_cb);
     }
 
-    function setBlock(block,x,y,z) {
+    function setBlock(block,x,y) {
+        z=0;
         var opt = [x,y,z,block[0],block[1]].join();
         mcSend("world.setBlock(" + opt + ")");
     }
@@ -166,6 +167,10 @@
         setBlocks([7, 0], x-30, -4, z-30, x+30, -4, z+30);
     }
 
+    function createWall(block, x, y){
+        setBlocks(block, 0, 0, 0, x-1, y-1, 0);
+    }
+
     var blockList = [
         [0,   0,  'くうき'],
         [1,   0,  'いし'],
@@ -215,23 +220,19 @@
     ext.sendRawMsg   = sendRawMsg;
     ext.worldReset   = worldReset;
     ext.block_name   = block_name;
+    ext.createWall   = createWall;
 
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-          [' ', 'マインクラフトにせつぞく', 'connect'],
-          [' ', 'チャットする %s ', 'postToChat', 'ハロー、ワールド！' ],
-          ['r', '%m.blockName', 'block_name', 'ダイヤブロック'],
-          ['R', 'ブロックめい X:%n Y:%n Z:%n ', 'getBlock', 0,0,0 ],
-          [' ', '%s をおく X:%n Y:%n Z:%n ', 'setBlock', ' ',0,0,0 ],
-          [' ', 'まわりをリセット', 'worldReset'],
-          [' ', 'テレポート X:%n Y:%n Z:%n ', 'setPlayer', 0,0,0 ],
-          ['w', 'プレイヤーのざひょうをゲット', 'getPlayerPos'],
-          ['r', 'プレイヤーの %m.pos ざひょう', 'playerXYZ', 'x'],
+            [' ', 'マインクラフトにせつぞく', 'connect'],
+            [' ', 'チャットする %s ', 'postToChat', 'ハロー、ワールド！' ],
+            ['r', '%m.blockName', 'block_name', 'ダイヤブロック'],
+            [' ', '%s をおく よこのいち:%n たてのいち:%n', 'setBlock', ' ',0,0 ],
+            [' ', 'まわりをリセット', 'worldReset'],
+            [' ', '%s のかべをつくる よこの長さ:%n たての長さ:%n', 'createWall', ' ', '2', '3'],
         ],
         menus: {
-            pos: ['x', 'y', 'z'],
-            blockPos: ['abs', 'rel'],
             blockName: ['くうき','いし','くさ','つち','まるいし','オークのもくざい','マツのもくざい','シラカバのもくざい','ようがん','きんブロック','てつブロック','TNT','ダイヤブロック','きのかんあつばん','ソウルサンド','グロウストーン','ジャック・オ・ランタン','ネザーレンガのフェンス','エメラルドブロック','ビーコン','レッドストーンブロック','スライムブロック'],            // mobName: ['羊', '馬', ],
         }
     };
