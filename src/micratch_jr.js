@@ -1,4 +1,4 @@
-
+﻿
 (function (ext) {
 
     var mcSocket = null;
@@ -123,6 +123,7 @@
         }
     }
 
+    // forJunior
     function createWall(micratchID, x, y){
         setBlocks(micratchID, 0, 0, 0, x-1, y-1, 0);
     }
@@ -130,6 +131,11 @@
     function setPlayer(x,y,z) {
         var opt = [x,y,z].join();
         mcSend("player.setPos(" + opt + ")");
+    }
+
+    // forJunior
+    function setPlayerToZero(){
+        mcSend("player.setPos(0,0,0)");
     }
 
     function getPlayerPos(callback) {
@@ -382,6 +388,7 @@
     // forJunior
     ext.setBlock2 = setBlock2;
     ext.createWall = createWall;
+    ext.setPlayerToZero = setPlayerToZero;
 
 
     // Block and block menu descriptions
@@ -390,6 +397,7 @@
           [' ', 'マインクラフトにせつぞく', 'connect'],
           [' ', 'チャットする %s ', 'postToChat', 'ハロー、ワールド！' ],
           [' ', '%s をおく よこのいち(x):%n たてのいち(y):%n', 'setBlock2', ' ',0,0 ],
+          [' ', 'はじめのいちにもどる', 'setPlayerToZero'],
           [' ', 'まわりをリセット', 'worldReset'],
           [' ', '%s のかべをつくる よこの長さ:%n たての長さ:%n', 'createWall', ' ', 2,3],
           ['r', '%m.commonBlock', 'getCommonBlockID', '石'],
