@@ -394,19 +394,6 @@
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-          [' ', 'マインクラフトにせつぞく', 'connect'],
-          [' ', 'チャットする %s ', 'postToChat', 'ハロー、ワールド！' ],
-          [' ', '%s をおく よこのいち(x):%n たてのいち(y):%n', 'setBlock2', ' ',0,0 ],
-          [' ', 'はじめのいちにもどる', 'setPlayerToZero'],
-          [' ', 'まわりをリセット', 'worldReset'],
-          [' ', '%s のかべをつくる よこの長さ:%n たての長さ:%n', 'createWall', ' ', 2,3],
-          ['r', '%m.commonBlock', 'getCommonBlockID', '石'],
-          ['r', '%m.rareBlock', 'getRareBlockID', 'ダイヤブロック'],
-          ['r', '%m.colorfulWool', 'getColorfulWoolID', '白色のウール'],
-          ['r', '%m.colorfulGlass', 'getColorfulGlassID', '白色の色付きガラス'],
-          ['r', '%m.miscBlock', 'getMiscBlockID', '空気'],
-          ['r', '%m.plantBlock', 'getPlantBlockID', 'ポピー'],
-          ['r', '%m.powerBlock', 'getPowerBlockID', 'レッドストーンブロック'],
         ],
         menus: {
             pos: ['x', 'y', 'z'],
