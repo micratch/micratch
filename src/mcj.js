@@ -128,6 +128,11 @@
         setBlocks(micratchID, 0, 0, 0, x-1, y-1, 0);
     }
 
+    // forJunior
+    function setBlockNextTo(micratchID, x, quantity){
+        setBlocks(micratchID, x, 0, 0, x+quantity-1, 0, 0);
+    }
+
     function setPlayer(x,y,z) {
         var opt = [x,y,z].join();
         mcSend("player.setPos(" + opt + ")");
@@ -389,6 +394,7 @@
     ext.setBlock2 = setBlock2;
     ext.createWall = createWall;
     ext.setPlayerToZero = setPlayerToZero;
+    ext.setBlockNextTo = setBlockNextTo;
 
 
     // Block and block menu descriptions
@@ -399,6 +405,7 @@
           [' ', '%s をおく よこのいち(x):%n たてのいち(y):%n', 'setBlock2', ' ',0,0 ],
           [' ', 'はじめのいちにもどる', 'setPlayerToZero'],
           [' ', 'まわりをリセット', 'worldReset'],
+          [' ', '%s を x:%n から %n 個おく', 'setBlockNextTo', ' ', 0, 3],
           [' ', '%s のかべをつくる よこの長さ:%n たての長さ:%n', 'createWall', ' ', 2,3],
           ['r', '%m.commonBlock', 'getCommonBlockID', '石'],
           ['r', '%m.rareBlock', 'getRareBlockID', 'ダイヤブロック'],
