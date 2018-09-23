@@ -397,7 +397,7 @@
         blocks: [
           [' ', 'connect to Minecraft', 'connect'],
           [' ', 'chat %s ', 'postToChat', 'Hello,world' ],
-          [' ', 'place %s horizontal pos(x):%n vertical pos:%n ', 'setBlock2', ' ',0,0 ],
+          [' ', 'place %s horizontal pos(x):%n vertical pos(y):%n ', 'setBlock2', ' ',0,0 ],
           [' ', "reset player's pos", 'setPlayerToZero'],
           [' ', 'reset world', 'worldReset'],
           [' ', 'place %s from x:%n to %n ', 'setBlockNextTo', ' ', 0, 3],
