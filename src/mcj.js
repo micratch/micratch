@@ -426,6 +426,10 @@
           ['r', '%m.plantBlock', 'getPlantBlockID', 'ポピー'],
           ['r', '%m.decorativeBlock', 'getDecorativeBlockID', 'フェンス'],
           ['r', '%m.powerBlock', 'getPowerBlockID', 'レッドストーンブロック'],
+          [' ', 'テレポート X:%n Y:%n Z:%n ', 'setPlayer', 0,0,0 ],
+          ['w', 'プレイヤーのざひょうをゲット', 'getPlayerPos'],
+          ['r', 'プレイヤーの %m.pos ざひょう', 'playerXYZ', 'x'],
+          ['R', 'X:%n Y:%n Z:%n にあるブロック', 'getBlockWithData', 0,0,0],
         ],
         menus: {
             pos: ['x', 'y', 'z'],
