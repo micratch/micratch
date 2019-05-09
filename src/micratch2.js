@@ -370,6 +370,11 @@
         mcSendWCB(msg, getbwd_cb);
     }
 
+    function spawnEntity(entityName, x, y, z){
+        opt = [entityName,x,y,z].join();
+        mcSend("world.spawnEntity(" + opt + ")");
+    }
+
     function getCommonBlockID(blockName){ }
     function getRareBlockID(blockName){ }
     function getColorfulWoolID(blockName){ }
@@ -402,6 +407,7 @@
     ext.getBlockName = getBlockName;
     ext.getBlockWithData = getBlockWithData;
     ext.sendRawMsg = sendRawMsg;
+    ext.spawnEntity = spawnEntity;
 
 
     // Block and block menu descriptions
@@ -424,6 +430,7 @@
           ['w', 'プレイヤーの座標をゲット', 'getPlayerPos'],
           ['r', 'プレイヤーの %m.pos 座標', 'playerXYZ', 'x'],
           ['R', 'X:%n Y:%n Z:%n にあるブロック', 'getBlockWithData', 0,0,0],
+          [' ', '%s を召喚する X:%n Y:%n Z:%n', 'spawnEntity', ' ', 0,0,0 ],
 //          [' ', 'コマンドを実行 %s', 'sendRawMsg', ''],
         ],
         menus: {
