@@ -122,8 +122,8 @@
     }
 
     // forJunior
-    function setBlockNextTo(micratchID, x, quantity){
-        setBlocks(micratchID, x, 0, 0, x+quantity-1, 0, 0);
+    function setBlockNextTo(micratchID, x, y, quantity){
+        setBlocks(micratchID, x, y, 0, x+quantity-1, y, 0);
     }
 
     function setPlayer(x,y,z) {
@@ -318,6 +318,32 @@
         [119,157,0,'Activator Rail'],
         [120,55,0,'Redstone'],
         [121,76,0,'Redstone Torch (on)'],
+        [122,49,0,'Obsidian'],
+        [123,107,0,'Fence Gate'],
+        [124,213,0,'Magma Block'],
+        [125,23,0,'Dispenser(downside)'],
+        [126,23,1,'Dispenser(upside)'],
+        [127,23,2,'Dispenser(south)'],
+        [128,23,3,'Dispenser(north)'],
+        [129,23,4,'Dispenser(west)'],
+        [130,23,5,'Dispenser(east)'],
+        [131,30,0,'Cobweb'],
+        [132,174,0,'Packed Ice'],
+        [133,120,0,'End Portal'],
+        [134,126,8,'Wood Slab(upside)'],
+        [135,126,0,'Wood Slab(downside)'],
+        [136,65,2,'Ladder(south)'],
+        [137,65,3,'Ladder(north)'],
+        [138,65,4,'Ladder(west)'],
+        [139,65,5,'Ladder(east)'],
+        [140,166,0,'Barrier Block'],
+        [141,20,0,'Glass'],
+        [142,151,0,'Daylight Sensor'],
+        [143,73,0,'Redstone Ore'],
+        [144,11,0,'Lava'],
+        [145,91,1,"Jack o'Lantern"],
+        [146,91,2,"Jack o'Lantern"],
+        [147,91,3,"Jack o'Lantern"],
     ];
 
     function getMicratchID(blockName) {
@@ -400,7 +426,7 @@
           [' ', 'place %s horizontal pos(x):%n vertical pos(y):%n ', 'setBlock2', ' ',0,0 ],
           [' ', "reset player's pos", 'setPlayerToZero'],
           [' ', 'reset world', 'worldReset'],
-          [' ', 'place %s from x:%n to %n ', 'setBlockNextTo', ' ', 0, 3],
+          [' ', 'place %s from x:%n y:%n to %n ', 'setBlockNextTo', ' ', 0, 0, 3],
           [' ', 'create wall of %s width:%n height:%n', 'createWall', ' ', 2,3],
           ['r', '%m.commonBlock', 'getCommonBlockID', 'Stone'],
           ['r', '%m.rareBlock', 'getRareBlockID', 'Diamond Block'],
@@ -408,18 +434,25 @@
           ['r', '%m.colorfulGlass', 'getColorfulGlassID', 'White Stained Glass'],
           ['r', '%m.miscBlock', 'getMiscBlockID', 'Air'],
           ['r', '%m.plantBlock', 'getPlantBlockID', 'Poppy'],
+          ['r', '%m.decorativeBlock', 'getDecorativeBlockID', 'Oak Fence'],
           ['r', '%m.powerBlock', 'getPowerBlockID', 'Redstone Block'],
+          [' ', 'teleport X:%n Y:%n Z:%n ', 'setPlayer', 0,0,0 ],
+          ['w', "get player's pos", 'getPlayerPos'],
+          ['r', "player's %m.pos pos", 'playerXYZ', 'x'],
+          ['R', 'block at X:%n Y:%n Z:%n', 'getBlockWithData', 0,0,0],
+
         ],
         menus: {
             pos: ['x', 'y', 'z'],
             blockPos: ['abs', 'rel'],
-            commonBlock: ['Stone','Granite','Diorite','Andesite','Grass','Dirt','Cobblestone','Oak Wood Plank','Spruce Wood Plank','Birch Wood Plank','Jungle Wood Plank','Acacia Wood Plank','Dark Oak Wood Plank','Sand','Gravel','Oak Wood','Spruce Wood','Birch Wood','Jungle Wood','Bricks','Stone Bricks','Acacia Wood','Dark Oak Wood',],
-            rareBlock: ['Gold Ore','Gold Block','Iron Ore','Iron Block','Coal Ore','Block of Coal','Diamond Ore','Diamond Block','Emerald Ore','Emerald Block','Lapis Lazuli Ore','Lapis Lazuli Block','Netherrack','Soul Sand','Prismarine','Prismarine Bricks','End Stone','Purpur Block',],
+            commonBlock: ['Stone','Grass','Dirt','Cobblestone','Oak Wood Plank','Spruce Wood Plank','Birch Wood Plank','Jungle Wood Plank','Acacia Wood Plank','Dark Oak Wood Plank','Sand','Gravel','Oak Wood','Spruce Wood','Birch Wood','Jungle Wood','Bricks','Stone Bricks','Acacia Wood','Dark Oak Wood',],
+            rareBlock: ['Gold Block','Iron Block','Block of Coal','Diamond Block','Emerald Block',,'Lapis Lazuli Block','Bricks','Stone Bricks','Netherrack','Soul Sand','Prismarine','Prismarine Bricks','End Stone','Purpur Block',],
             colorfulWool: ['White Wool','Orange Wool','Magenta Wool','Light Blue Wool','Yellow Wool','Lime Wool','Pink Wool','Gray Wool','Light Gray Wool','Cyan Wool','Purple Wool','Blue Wool','Brown Wool','Green Wool','Red Wool','Black Wool',],
             colorfulGlass: ['White Stained Glass','Orange Stained Glass','Magenta Stained Glass','Light Blue Stained Glass','Yellow Stained Glass','Lime Stained Glass','Pink Stained Glass','Gray Stained Glass','Light Gray Stained Glass','Cyan Stained Glass','Purple Stained Glass','Blue Stained Glass','Brown Stained Glass','Green Stained Glass','Red Stained Glass','Black Stained Glass',],
-            miscBlock: ['Air','Bedrock','Flowing Water','Flowing Lava','Sponge','TNT','Bookshelf','Torch','Fire','Chest','Furnace','Oak door(upside)','Oak door(downside)','Ice','Snow Block','Oak Fence','Glowstone',"Jack o'Lantern",'Iron Bars','Nether Brick Fence','Beacon','Slime Block','Sea Lantern',],
+            miscBlock: ['Air','Bedrock','Flowing Water','Flowing Lava','Sponge','TNT','Torch','Fire','Ice','Snow Block','Oak Fence','Glowstone',"Jack o'Lantern",'Slime Block','Sea Lantern',],
             plantBlock: ['Pumpkin','Melon Block','Dandelion','Poppy','Blue Orchid','Allium','Azure Bluet','Red Tulip','Orange Tulip','White Tulip','Pink Tulip','Oxeye Daisy','Brown Mushroom','Red Mushroom',],
             powerBlock: ['Powered Rail','Detector Rail','Redstone','Rail','Lever','Wooden Pressure Plate','Redstone Torch (on)','Redstone Lamp (inactive)','Redstone Lamp (active)','Redstone Block','Activator Rail',],
+            decorativeBlock: ['Oak Fence','Fence Gate','Nether Brick Fence','Iron Bars','Bookshelf','Chest','Furnace','Oak door(upside)','Oak door(downside)','Beacon',],
         }
     };
 
