@@ -446,7 +446,7 @@
             pos: ['x', 'y', 'z'],
             blockPos: ['abs', 'rel'],
             commonBlock: ['Stone','Grass','Dirt','Cobblestone','Oak Wood Plank','Spruce Wood Plank','Birch Wood Plank','Jungle Wood Plank','Acacia Wood Plank','Dark Oak Wood Plank','Sand','Gravel','Oak Wood','Spruce Wood','Birch Wood','Jungle Wood','Bricks','Stone Bricks','Acacia Wood','Dark Oak Wood',],
-            rareBlock: ['Gold Block','Iron Block','Block of Coal','Diamond Block','Emerald Block',,'Lapis Lazuli Block','Bricks','Stone Bricks','Netherrack','Soul Sand','Magma Block','Prismarine','Prismarine Bricks','End Stone','Purpur Block',],
+            rareBlock: ['Gold Block','Iron Block','Block of Coal','Diamond Block','Emerald Block','Lapis Lazuli Block','Bricks','Stone Bricks','Netherrack','Soul Sand','Magma Block','Prismarine','Prismarine Bricks','End Stone','Purpur Block',],
             colorfulWool: ['White Wool','Orange Wool','Magenta Wool','Light Blue Wool','Yellow Wool','Lime Wool','Pink Wool','Gray Wool','Light Gray Wool','Cyan Wool','Purple Wool','Blue Wool','Brown Wool','Green Wool','Red Wool','Black Wool',],
             colorfulGlass: ['White Stained Glass','Orange Stained Glass','Magenta Stained Glass','Light Blue Stained Glass','Yellow Stained Glass','Lime Stained Glass','Pink Stained Glass','Gray Stained Glass','Light Gray Stained Glass','Cyan Stained Glass','Purple Stained Glass','Blue Stained Glass','Brown Stained Glass','Green Stained Glass','Red Stained Glass','Black Stained Glass',],
             miscBlock: ['Air','Bedrock','Flowing Water','Flowing Lava','Sponge','TNT','Torch','Fire','Ice','Snow Block','Oak Fence','Glowstone',"Jack o'Lantern",'Slime Block','Sea Lantern',],
