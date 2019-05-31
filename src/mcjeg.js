@@ -390,6 +390,7 @@
     function getMiscBlockID(blockName){ }
     function getPlantBlockID(blockName){ }
     function getPowerBlockID(blockName){ }
+    function getDecorativeBlockID(blockName){ }
 
     ext.connect      = connect;
     ext.connect_url  = connect_url;
@@ -409,6 +410,7 @@
     ext.getPlantBlockID = getMicratchID;
     ext.getMiscBlockID = getMicratchID;
     ext.getPowerBlockID = getMicratchID;
+    ext.getDecorativeBlockID = getDecorativeBlockID;
     ext.getBlockName = getBlockName;
     ext.getBlockWithData = getBlockWithData;
 
