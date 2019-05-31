@@ -410,7 +410,7 @@
     ext.getPlantBlockID = getMicratchID;
     ext.getMiscBlockID = getMicratchID;
     ext.getPowerBlockID = getMicratchID;
-    ext.getDecorativeBlockID = getDecorativeBlockID;
+    ext.getDecorativeBlockID = getMicratchID;
     ext.getBlockName = getBlockName;
     ext.getBlockWithData = getBlockWithData;
 
