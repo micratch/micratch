@@ -375,6 +375,11 @@
         mcSend("world.spawnEntity(" + opt + ")");
     }
 
+    function setRotation(r){
+        R = r - 90;
+        mcSend("player.setRotation(" + R + ")");
+    }
+
     function getCommonBlockID(blockName){ }
     function getRareBlockID(blockName){ }
     function getColorfulWoolID(blockName){ }
@@ -408,6 +413,7 @@
     ext.getBlockWithData = getBlockWithData;
     ext.sendRawMsg = sendRawMsg;
     ext.spawnEntity = spawnEntity;
+    ext.setRotation = setRotation;
 
 
     // Block and block menu descriptions
@@ -431,6 +437,7 @@
           ['r', 'プレイヤーの %m.pos 座標', 'playerXYZ', 'x'],
           ['R', 'X:%n Y:%n Z:%n にあるブロック', 'getBlockWithData', 0,0,0],
           [' ', '%s を召喚する X:%n Y:%n Z:%n', 'spawnEntity', ' ', 0,0,0 ],
+          [' ', '向きを変える 向き:%n', 'setRotation', 0],
 //          [' ', 'コマンドを実行 %s', 'sendRawMsg', ''],
         ],
         menus: {
